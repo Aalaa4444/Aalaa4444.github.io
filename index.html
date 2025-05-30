@@ -780,9 +780,47 @@
       <div class="section-title">
         <h2>Projects</h2>
       </div>
-      <button aria-label="Filter by Computer Vision projects" data-filter=".filter-cv">
-        Computer Vision
-      </button>
+      <div class="filter-container">
+        <ul id="portfolio-flters">
+          <!-- Primary Technical Filters -->
+          <li data-filter="*" class="filter-active" 
+              title="View all projects">All Projects</li>
+              
+          <li data-filter=".filter-aiml" 
+              title="Machine Learning & Deep Learning">
+              <span class="technical">AI/ML</span>
+              <span class="friendly">Intelligent Systems</span>
+          </li>
+          
+          <li data-filter=".filter-cv" 
+              title="Image & Video Processing">
+              <span class="technical">CV</span>
+              <span class="friendly">Computer Vision</span>
+          </li>
+          
+          <li data-filter=".filter-nlp" 
+              title="Language & Text Processing">
+              <span class="technical">NLP</span>
+              <span class="friendly">Language AI</span>
+          </li>
+          
+          <!-- Cross-Functional Filters -->
+          <li data-filter=".filter-deployment" 
+              title="Production Implementation">
+              <i class="fas fa-server"></i> Deployment
+          </li>
+          
+          <li data-filter=".filter-multimodal" 
+              title="Cross-domain AI systems">
+              <i class="fas fa-project-diagram"></i> Multimodal AI
+          </li>
+        </ul>
+        
+        <!-- Tooltip for abbreviations -->
+        <div class="filter-legend">
+          <small>CV = Computer Vision | NLP = Natural Language Processing</small>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-center">
