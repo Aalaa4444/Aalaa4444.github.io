@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Autonomous Parallel Parking Car </title>
+    <meta name="description" content="Arduino-powered car that autonomously parallel parks using ultrasonic sensors and custom algorithms">
+    <style>
+        :root {
+            --primary: #2a9d8f; /* Teal for robotics/embedded systems */
+            --primary-light: #e6f7f5;
+            --primary-dark: #1d7870;
+            --secondary: #c4e8e3;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .tech-tags {
+            background: var(--primary-light);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 3px solid var(--primary);
+        }
+        .tech-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .category-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+            border: 1px solid #9bd1c9;
+        }
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .hardware-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .hardware-item img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .algorithm-steps {
+            margin: 30px 0;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+        }
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .metric {
+            flex: 1;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        .diagram {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Autonomous Parallel Parking Car</h1>
+        <p>Embedded system that automates parallel parking using ultrasonic sensors and Arduino</p>
+        
+        <div class="tech-tags">
+            <div style="margin-bottom: 10px;">
+                <strong>Tech Stack:</strong>
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Ultrasonic Sensors</span>
+            </div>
+            <div>
+                <strong>Categories:</strong>
+                <span class="category-tag">Robotics</span>
+                <span class="category-tag">Embedded Systems</span>
+                <span class="category-tag">Autonomous Vehicles</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h3>Hardware Components</h3>
+    <div class="hardware-grid">
+        <div class="hardware-item">
+           <div>Arduino Uno</div>
+        </div>
+        <div class="hardware-item">
+            <div>L298N Driver</div>
+        </div>
+        <div class="hardware-item">
+            <div>HC-SR04 Sensors</div>
+        </div>
+        <div class="hardware-item">
+            <div>2-Wheel Chassis</div>
+        </div>
+    </div>
+
+    <div class="algorithm-steps">
+        <h3>Parking Algorithm</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Space Detection</strong>
+            <p>Ultrasonic sensors scan for parking spots >27cm wide (calibrated via trial-and-error)</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Initial Alignment</strong>
+            <p>Car positions itself parallel to front vehicle (10cm threshold)</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Reverse Maneuver</strong>
+            <p>Wheels turn right (450ms pulse) while reversing until 15cm from curb</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>Final Adjustment</strong>
+            <p>Wheels turn left (350ms pulse) to straighten with 5cm rear clearance</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <h3>Key Technical Challenges</h3>
+        <ul>
+            <li><strong>Power Management:</strong> Solved inconsistent motor power by testing series/parallel 18650 battery configurations</li>
+            <li><strong>Sensor Fusion:</strong> Integrated 3 ultrasonic sensors with complementary detection zones</li>
+            <li><strong>Precision Timing:</strong> Calibrated wheel turn durations through iterative testing</li>
+            <li><strong>Localization:</strong> Implemented WiFi trilateration for slot detection (ESP32 prototype)</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://github.com/Aalaa4444/Auto-Parallel-Parking-Car" class="button" target="_blank">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+        <a href="https://github.com/Aalaa4444/Auto-Parallel-Parking-Car/blob/main/Paper.pdf" class="button"  target="_blank">
+            <i class="fas fa-file-pdf"></i> Paper
+        </a>
+    </div>
+
+    <div style="margin-top: 50px; text-align: center; color: #777; font-size: 14px;">
+        <p>Team project with Sama Hussien, Marwa Shaaban, and Mina Makram | Supervised by Dr. Mustafa Shiple</p>
+    </div>
+</body>
+</html>
