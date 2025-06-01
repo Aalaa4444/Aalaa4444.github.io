@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Virtual Try-On Preprocessing Pipeline</title>
+    <meta name="description" content="Advanced preprocessing system for virtual try-on applications">
+    <style>
+        :root {
+            --primary: #8a2be2; /* Purple for creative/vision projects */
+            --primary-light: #f0e6ff;
+            --primary-dark: #5a1e9e;
+            --secondary: #e6d6ff;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .tech-tags {
+            background: var(--primary-light);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 3px solid var(--primary);
+        }
+        .tech-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .category-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+            border: 1px solid #c9b1ff;
+        }
+        .notice-box {
+            background: #fff8e6;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+            margin: 20px 0;
+        }
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .pipeline-step {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--primary);
+        }
+        .pipeline-step h4 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .metric {
+            flex: 1;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        .button.outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .demo-grid img {
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Virtual Try-On Preprocessing Pipeline</h1>
+        <p>Advanced computer vision system for accurate clothing alignment</p>
+        
+        <div class="tech-tags">
+            <div style="margin-bottom: 10px;">
+                <strong>Tech Stack:</strong>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenPose</span>
+                <span class="tech-tag">DensePose</span>
+                <span class="tech-tag">U-Net</span>
+                <span class="tech-tag">TensorFlow</span>
+            </div>
+            <div>
+                <strong>Categories:</strong>
+                <span class="category-tag">Computer Vision</span>
+                <span class="category-tag">Generative AI</span>
+                <span class="category-tag">Image Processing</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="notice-box">
+        <i class="fas fa-info-circle"></i> <strong>Note:</strong> This showcases my independent work on the preprocessing pipeline. 
+        The full virtual try-on system was developed as part of my graduation project with code maintained by my university team.
+    </div>
+
+    <div class="feature">
+        <h3>Project Impact</h3>
+        <p>Developed a complete preprocessing pipeline that improved clothing alignment accuracy by 25% for virtual try-on systems, enabling more realistic fashion visualization.</p>
+        
+    </div>
+
+    <h3>Preprocessing Pipeline</h3>
+    <div class="pipeline">
+        <div class="pipeline-step">
+            <h4><i class="fas fa-tshirt"></i> Cloth Masking</h4>
+            <p>U-Net based segmentation with adaptive padding for garment extraction</p>
+            <a href="https://github.com/Aalaa4444/preprocessing-for-VITON-models/tree/main/cloth_mask" class="button">
+                View Code
+            </a>
+        </div>
+        <div class="pipeline-step">
+            <h4><i class="fas fa-user"></i> Body Parsing</h4>
+            <p>Semantic segmentation for 12 body regions using HRNet</p>
+            <a href="https://github.com/Aalaa4444/preprocessing-for-VITON-models/tree/main/image_parse" class="button">
+                View Code
+            </a>
+        </div>
+        <div class="pipeline-step">
+            <h4><i class="fas fa-running"></i> Pose Estimation</h4>
+            <p>OpenPose 1.17 for 18-keypoint body pose detection</p>
+            <a href="https://github.com/Aalaa4444/preprocessing-for-VITON-models/tree/main/openpose" class="button">
+                View Code
+            </a>
+        </div>
+        <div class="pipeline-step">
+            <h4><i class="fas fa-project-diagram"></i> DensePose</h4>
+            <p>Pixel-level body surface mapping using ResNet101-FPN</p>
+            <a href="https://github.com/Aalaa4444/preprocessing-for-VITON-models/tree/main/densepose" class="button">
+                View Code
+            </a>
+        </div>
+    </div>
+
+    <h3>Technical Highlights</h3>
+    <div class="demo-grid">
+        <img src="img/input-sample.png" alt="Input sample">
+        <img src="img/output-sample.png" alt="Output sample">
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://github.com/Aalaa4444/preprocessing-for-VITON-models" class="button" target="_blank">
+            <i class="fab fa-github"></i> View Full Repository
+        </a>
+    </div>
+
+    <div style="margin-top: 50px; text-align: center; color: #777; font-size: 14px;">
+        <p>Developed as part of graduation research at Cairo University - Code available for preprocessing components only</p>
+    </div>
+</body>
+</html>
