@@ -11,25 +11,30 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
+            --primary: #6a4c93;
+            --primary-light: #f0e6ff;
+            --primary-dark: #5a3d7a;
+            --secondary: #e6d6ff;
         }
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
         h1 {
-            color: #2c8aec;
+            color: var(--primary);
             margin-bottom: 10px;
         }
         .tech-tags {
-            background: #f0f8ff;
+            background: var(--primary-light);
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
             text-align: center;
+            border-left: 3px solid var(--primary);
         }
         .tech-tag {
             display: inline-block;
-            background: #2c8aec;
+            background: var(--primary);
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
@@ -38,25 +43,27 @@
         }
         .category-tag {
             display: inline-block;
-            background: #e6f7ff;
-            color: #0066cc;
+            background: var(--secondary);
+            color: var(--primary-dark);
             padding: 5px 15px;
             border-radius: 20px;
             margin: 5px;
             font-size: 14px;
-            border: 1px solid #b3e0ff;
+            border: 1px solid #c9b1ff;
         }
         .demo-image {
             width: 100%;
             border: 1px solid #eee;
             border-radius: 5px;
             margin: 20px 0;
+            box-shadow: 0 0 10px rgba(106, 76, 147, 0.1);
         }
         .feature {
             background: #f9f9f9;
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 20px;
+            border-left: 3px solid var(--secondary);
         }
         .steps {
             margin: 30px 0;
@@ -69,7 +76,7 @@
         .step-number {
             position: absolute;
             left: 0;
-            background: #2c8aec;
+            background: var(--primary);
             color: white;
             width: 30px;
             height: 30px;
@@ -79,7 +86,7 @@
         }
         .button {
             display: inline-block;
-            background: #2c8aec;
+            background: var(--primary);
             color: white;
             padding: 12px 25px;
             text-decoration: none;
@@ -89,7 +96,21 @@
             transition: background 0.3s;
         }
         .button:hover {
-            background: #1a75d2;
+            background: var(--primary-dark);
+        }
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .metric {
+            flex: 1;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
         }
     </style>
 </head>
@@ -99,21 +120,21 @@
         <p>Automatically find and highlight subtitles in any video</p>
         
         <!-- Recruiter-Friendly Tech Tags -->
-        <div class="tech-tags">
+        <div class="tech-tags" style="background: #f0e6ff; border-left: 3px solid #6a4c93;">
             <div style="margin-bottom: 10px;">
                 <strong>Tech Stack:</strong>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">OpenCV</span>
-                <span class="tech-tag">NumPy</span>
-                <span class="tech-tag">pytesseract</span>
+                <span class="tech-tag" style="background: #6a4c93;">Python</span>
+                <span class="tech-tag" style="background: #6a4c93;">OpenCV</span>
+                <span class="tech-tag" style="background: #6a4c93;">NumPy</span>
             </div>
             <div>
                 <strong>Categories:</strong>
-                <span class="category-tag">Computer Vision</span>
-                <span class="category-tag">Image Processing</span>
-                <span class="category-tag">Video Analysis</span>
+                <span class="category-tag" style="background: #e6d6ff; color: #5a3d7a; border-color: #c9b1ff;">Computer Vision</span>
+                <span class="category-tag" style="background: #e6d6ff; color: #5a3d7a; border-color: #c9b1ff;">Image Processing</span>
+                <span class="category-tag" style="background: #e6d6ff; color: #5a3d7a; border-color: #c9b1ff;">Video Processing</span>
             </div>
         </div>
+        
     </div>
 
     <img src="img/demo.png" alt="demo" class="demo-image">
