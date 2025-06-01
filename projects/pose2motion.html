@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Pose2Motion | 2D Video to 3D Motion Conversion</title>
+    <meta name="description" content="Professional motion capture pipeline converting 2D videos to 3D BVH animations using OpenPose and biomechanical modeling">
+    
+    <!-- Favicons -->
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="../assets/vendor/highlightjs/github-dark.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <style>
+        .tech-feature {
+            background: rgba(20, 157, 221, 0.1);
+            border-left: 3px solid #149ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .metric-badge {
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            margin-right: 8px;
+        }
+        .pipeline-diagram {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+  
+<body>
+  <main id="main">
+    <div id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="project-header text-center mb-5">
+              <h1 style="color:#12d640">Pose2Motion Pipeline</h1>
+              <p class="lead">Professional-grade 2D-to-3D motion capture conversion</p>
+              <div class="mb-4">
+                <span class="badge metric-badge bg-primary">OpenPose</span>
+                <span class="badge metric-badge bg-success">3D Reconstruction</span>
+                <span class="badge metric-badge bg-info">BVH Export</span>
+                <span class="badge metric-badge bg-warning">Python</span>
+              </div>
+            </div>
+
+            <div class="row mb-5">
+              <div class="col-md-6">
+                <img src="../assets/img/projects/pose2motion-pipeline.jpg" alt="Pose2Motion workflow diagram" class="pipeline-diagram">
+              </div>
+              <div class="col-md-6">
+                <div class="tech-feature">
+                  <h4><i class="fas fa-video"></i> Input Flexibility</h4>
+                  <p>Processes standard video formats (MP4, MOV, AVI) at various resolutions (HD to 4K)</p>
+                </div>
+                <div class="tech-feature">
+                  <h4><i class="fas fa-robot"></i> Multi-Person Support</h4>
+                  <p>Simultaneously tracks up to 5 subjects with configurable ID persistence</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="section-title"><i class="fas fa-cogs"></i> Technical Architecture</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Core Components</h4>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"><i class="fas fa-check-circle text-success"></i></span><strong>Pose Estimation</strong>: OpenPose with custom accuracy optimizations</li>
+                  <li><span class="fa-li"><i class="fas fa-check-circle text-success"></i></span><strong>3D Lifting</strong>: Biomechanically constrained inverse kinematics</li>
+                  <li><span class="fa-li"><i class="fas fa-check-circle text-success"></i></span><strong>Temporal Smoothing</strong>: Kalman filtering for jitter reduction</li>
+                  <li><span class="fa-li"><i class="fas fa-check-circle text-success"></i></span><strong>BVH Generation</strong>: Configurable skeleton hierarchies</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h4>Performance Metrics</h4>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Processing Speed</td>
+                        <td>8-12 FPS (HD)</td>
+                      </tr>
+                      <tr>
+                        <td>Joint Accuracy</td>
+                        <td>±3.2cm (compared to Vicon)</td>
+                      </tr>
+                      <tr>
+                        <td>Output Formats</td>
+                        <td>BVH, FBX, CSV</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="section-title mt-4"><i class="fas fa-code"></i> Implementation Highlights</h3>
+            <div class="mb-4">
+              <h5><i class="fas fa-project-diagram"></i> Modular Pipeline Architecture</h5>
+              <pre><code class="language-python">
+# Example of the configurable pipeline
+pipeline = Pose2Motion(
+    pose_estimator=OpenPoseEstimator(config='accurate'),
+    pose_lifter=KinematicLifter(
+        skeleton_template='humanoid'),
+    exporter=BVHExporter(
+        fps=30, 
+        rotate_x=90)  # Blender compatibility
+)
+              </code></pre>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <h5><i class="fas fa-book"></i> Documentation Features</h5>
+                <ul>
+                  <li>Jupyter notebook tutorials</li>
+                  <li>API reference with type hints</li>
+                  <li>Troubleshooting guide for common scenarios</li>
+                  <li>Example datasets for quick testing</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h5><i class="fas fa-rocket"></i> Deployment Options</h5>
+                <ul>
+                  <li>Docker container for easy setup</li>
+                  <li>CLI interface for batch processing</li>
+                  <li>REST API endpoint for integration</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-actions text-center mt-5">
+              <a href="https://github.com/Aalaa4444/Pose2Motion" class="btn btn-primary btn-lg mx-2" target="_blank">
+                <i class="fab fa-github"></i> View Repository
+              </a>
+              <a href="#" class="btn btn-outline-primary btn-lg mx-2 venobox" data-vbtype="video" href="https://youtube.com/...">
+                <i class="fas fa-play"></i> Demo Video
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/highlightjs/highlight.pack.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  
+  <script>
+    // Activate syntax highlighting
+    $(document).ready(function() {
+      hljs.initHighlightingOnLoad();
+      
+      // Initialize video lightbox
+      $('.venobox').venobox({
+        bgcolor: '#12d640',
+        overlayColor: 'rgba(18, 214, 64, 0.85)'
+      });
+    });
+  </script>
+</body>
+</html>
