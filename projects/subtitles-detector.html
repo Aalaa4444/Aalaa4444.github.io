@@ -2,264 +2,173 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Advanced Subtitle Detection System | Computer Vision Project</title>
-    <meta name="description" content="Professional-grade video processing pipeline for precise subtitle detection using morphological operations and OpenCV">
-    
-    <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  
-    <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/font-awesome/css/all.min.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="../assets/vendor/highlightjs/atom-one-dark.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <title>Simple Subtitle Detector | Video Processing Tool</title>
     <style>
-        .pipeline-step {
-            border-left: 3px solid #12d640;
-            padding-left: 15px;
-            margin-bottom: 25px;
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .feature-card {
-            transition: transform 0.3s;
-            height: 100%;
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
         }
-        .feature-card:hover {
-            transform: translateY(-5px);
+        h1 {
+            color: #2c8aec;
+            margin-bottom: 10px;
         }
-        .morph-op {
-            background: rgba(18, 214, 64, 0.05);
-            border-radius: 5px;
+        .tech-tags {
+            background: #f0f8ff;
             padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
         }
-        .comparison-table th {
-            background-color: #f8f9fa;
+        .tech-tag {
+            display: inline-block;
+            background: #2c8aec;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .category-tag {
+            display: inline-block;
+            background: #e6f7ff;
+            color: #0066cc;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+            border: 1px solid #b3e0ff;
+        }
+        .demo-image {
+            width: 100%;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .feature {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .steps {
+            margin: 30px 0;
+        }
+        .step {
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            background: #2c8aec;
+            color: white;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+        }
+        .button {
+            display: inline-block;
+            background: #2c8aec;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #1a75d2;
         }
     </style>
 </head>
-  
 <body>
-  <main id="main">
-    <div id="portfolio-details" class="portfolio-details">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <div class="project-header text-center mb-5">
-              <h1 style="color:#12d640">Video Subtitle Detection System</h1>
-              <p class="lead">Precision detection and extraction of subtitles using advanced image processing techniques</p>
-              <div class="d-flex justify-content-center flex-wrap">
-                <span class="badge bg-primary me-2 mb-2"><i class="fas fa-cog"></i> OpenCV</span>
-                <span class="badge bg-success me-2 mb-2"><i class="fas fa-project-diagram"></i> Morphological Ops</span>
-                <span class="badge bg-info me-2 mb-2"><i class="fas fa-video"></i> Video Processing</span>
-                <span class="badge bg-warning me-2 mb-2"><i class="fas fa-tachometer-alt"></i> 95% Accuracy</span>
-              </div>
+    <div class="header">
+        <h1>Video Subtitle Detector</h1>
+        <p>Automatically find and highlight subtitles in any video</p>
+        
+        <!-- Recruiter-Friendly Tech Tags -->
+        <div class="tech-tags">
+            <div style="margin-bottom: 10px;">
+                <strong>Tech Stack:</strong>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">pytesseract</span>
             </div>
-
-            <div class="row mb-5">
-              <div class="col-md-6">
-                <div class="ratio ratio-16x9">
-                  <iframe src="https://www.youtube.com/embed/EXAMPLE" allowfullscreen></iframe>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <h3><i class="fas fa-bullseye"></i> Project Highlights</h3>
-                <ul class="fa-ul">
-                  <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Frame-by-frame subtitle detection with bounding boxes</li>
-                  <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Multi-level segmentation (line and word detection)</li>
-                  <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Support for multiple languages and font styles</li>
-                  <li><span class="fa-li"><i class="fas fa-check text-success"></i></span>Batch processing for entire video files</li>
-                </ul>
-                <div class="mt-4">
-                  <a href="https://github.com/Aalaa4444/Video-Subtitles-Detector" class="btn btn-primary me-2" target="_blank">
-                    <i class="fab fa-github"></i> View Repository
-                  </a>
-                  <a href="../assets/projects/Image Processing Project.pdf" class="btn btn-outline-primary" download>
-                    <i class="fas fa-file-pdf"></i> Download Whitepaper
-                  </a>
-                </div>
-              </div>
+            <div>
+                <strong>Categories:</strong>
+                <span class="category-tag">Computer Vision</span>
+                <span class="category-tag">Image Processing</span>
+                <span class="category-tag">Video Analysis</span>
             </div>
-
-            <h3 class="section-title mb-4"><i class="fas fa-random"></i> Processing Pipeline</h3>
-            <div class="pipeline-step">
-              <h4><span class="badge bg-primary">1</span> Frame Extraction</h4>
-              <p>Efficiently extracts frames while maintaining original quality and aspect ratio</p>
-              <pre><code class="language-python">
-def extract_frames(video_path, output_dir, fps=30):
-    cap = cv2.VideoCapture(video_path)
-    frame_count = 0
-    while cap.isOpened():
-        ret, frame = cap.read()
-        if not ret: break
-        if frame_count % (30//fps) == 0:
-            cv2.imwrite(f"{output_dir}/frame_{frame_count:04d}.jpg", frame)
-        frame_count += 1
-    cap.release()
-              </code></pre>
-            </div>
-
-            <div class="pipeline-step">
-              <h4><span class="badge bg-success">2</span> Morphological Processing</h4>
-              <div class="morph-op">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h5>Key Operations:</h5>
-                    <ul>
-                      <li>Adaptive thresholding</li>
-                      <li>Dilation/Erosion with custom kernels</li>
-                      <li>Contour detection and filtering</li>
-                    </ul>
-                  </div>
-                  <div class="col-md-6">
-                    <h5>Performance Optimization:</h5>
-                    <ul>
-                      <li>Multi-core processing</li>
-                      <li>Memory-efficient batch processing</li>
-                      <li>GPU acceleration support</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pipeline-step">
-              <h4><span class="badge bg-info">3</span> Subtitle Detection</h4>
-              <div class="row">
-                <div class="col-md-6">
-                  <h5>Detection Logic:</h5>
-                  <pre><code class="language-python">
-def detect_subtitles(frame):
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    blurred = cv2.GaussianBlur(gray, (5,5), 0)
-    thresh = cv2.adaptiveThreshold(blurred, 255, 
-              cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
-              cv2.THRESH_BINARY_INV, 11, 2)
-    
-    # Morphological operations
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
-    dilated = cv2.dilate(thresh, kernel, iterations=2)
-    
-    contours, _ = cv2.findContours(dilated, cv2.RETR_EXTERNAL, 
-                                 cv2.CHAIN_APPROX_SIMPLE)
-    
-    # Filter and return subtitle regions
-    return filter_subtitle_contours(contours)
-                  </code></pre>
-                </div>
-                <div class="col-md-6">
-                  <img src="../assets/img/projects/subtitle-detection-example.jpg" alt="Subtitle detection example" class="img-fluid rounded">
-                </div>
-              </div>
-            </div>
-
-            <h3 class="section-title mt-5"><i class="fas fa-tachometer-alt"></i> Performance Benchmarks</h3>
-            <div class="table-responsive">
-              <table class="table comparison-table">
-                <thead>
-                  <tr>
-                    <th>Metric</th>
-                    <th>Our Solution</th>
-                    <th>Industry Average</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Processing Speed (1080p)</td>
-                    <td>24 FPS</td>
-                    <td>15 FPS</td>
-                  </tr>
-                  <tr>
-                    <td>Detection Accuracy</td>
-                    <td>95.2%</td>
-                    <td>88.7%</td>
-                  </tr>
-                  <tr>
-                    <td>False Positive Rate</td>
-                    <td>3.1%</td>
-                    <td>8.5%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 class="section-title mt-5"><i class="fas fa-rocket"></i> Advanced Features</h3>
-            <div class="row">
-              <div class="col-md-4 mb-4">
-                <div class="card feature-card h-100">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-brain"></i> OCR Integration</h5>
-                    <p class="card-text">Optional Tesseract OCR integration for text extraction with configurable language packs.</p>
-                    <pre><code class="language-python">pytesseract.image_to_string(roi, config='--psm 6')</code></pre>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="card feature-card h-100">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-network-wired"></i> API Endpoint</h5>
-                    <p class="card-text">REST API for integration with other services using FastAPI.</p>
-                    <pre><code class="language-python">@app.post("/process")
-async def process_video(file: UploadFile):
-    # Processing logic
-    return {"status": "success"}</code></pre>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="card feature-card h-100">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-sliders-h"></i> Configurable Pipeline</h5>
-                    <p class="card-text">YAML-based configuration for tuning all processing parameters.</p>
-                    <pre><code class="language-yaml">threshold:
-  adaptive: true
-  method: GAUSSIAN
-morphology:
-  kernel_size: [3,3]
-  iterations: 2</code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-footer text-center mt-5">
-              <a href="https://github.com/Aalaa4444/Video-Subtitles-Detector/issues" class="btn btn-outline-secondary me-2" target="_blank">
-                <i class="fas fa-bug"></i> Report Issue
-              </a>
-              <a href="https://github.com/Aalaa4444/Video-Subtitles-Detector/fork" class="btn btn-outline-success me-2" target="_blank">
-                <i class="fas fa-code-branch"></i> Fork Project
-              </a>
-              <a href="../assets/projects/project_presentation.pdf" class="btn btn-primary" download>
-                <i class="fas fa-download"></i> Download Slides
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </main>
 
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/highlightjs/highlight.pack.min.js"></script>
-  <script src="../assets/vendor/venobox/venobox.min.js"></script>
-  
-  <script>
-    // Activate syntax highlighting
-    $(document).ready(function() {
-      hljs.initHighlightingOnLoad();
-      
-      // Initialize video lightbox
-      $('.venobox').venobox({
-        bgcolor: '#12d640',
-        overlayColor: 'rgba(18, 214, 64, 0.85)'
-      });
-    });
-  </script>
+    <img src="assets/img/subtitle-demo.jpg" alt="Before and After demo" class="demo-image">
+
+    <div class="feature">
+        <h3>What It Does</h3>
+        <p>This tool scans through video files and automatically:</p>
+        <ul>
+            <li>Finds all subtitle text on screen with 95% accuracy</li>
+            <li>Draws colored boxes around each subtitle line</li>
+            <li>Works with multiple languages and font styles</li>
+            <li>Processes HD videos at 24 frames per second</li>
+        </ul>
+    </div>
+
+    <div class="steps">
+        <h3>How It Works</h3>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Frame Extraction</strong>
+            <p>Breaks down video into individual frames for analysis</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Text Detection</strong>
+            <p>Uses computer vision to identify text regions in each frame</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Subtitle Highlighting</strong>
+            <p>Draws bounding boxes and compiles final video</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <h3>Key Technical Features</h3>
+        <ul>
+            <li><strong>Morphological Operations:</strong> Advanced image processing for precise text detection</li>
+            <li><strong>Adaptive Thresholding:</strong> Works in varying lighting conditions</li>
+            <li><strong>Batch Processing:</strong> Handles multiple videos automatically</li>
+            <li><strong>OCR Integration:</strong> Optional text extraction with Tesseract</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://github.com/Aalaa4444/Video-Subtitles-Detector" class="button" target="_blank">
+            <i class="fab fa-github"></i> View Code on GitHub
+        </a>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </body>
 </html>
