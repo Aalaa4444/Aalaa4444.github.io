@@ -10,7 +10,9 @@
             --primary-light: #d1fae5;
             --primary-dark: #059669;
             --secondary: #a7f3d0;
+            --github: #24292e;
             --text: #064e3b;
+            
         }
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
@@ -62,26 +64,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             border-left: 4px solid var(--primary);
         }
-        .code-block {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            font-family: monospace;
-            overflow-x: auto;
-            border-left: 3px solid var(--primary);
-        }
-        .results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .result-card {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
         .github-btn {
             display: inline-flex;
             align-items: center;
@@ -107,6 +89,26 @@
             justify-content: center;
             flex-wrap: wrap;
             margin: 1.5rem 0;
+        }
+        .code-block {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            overflow-x: auto;
+            border-left: 3px solid var(--primary);
+        }
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .result-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -145,11 +147,8 @@
             </ul>
         </div>
         <div class="github-btns-container">
-            <a href="https://github.com/yourusername/WebCrawler" class="github-btn" target="_blank">
+            <a href="https://github.com/Aalaa444/WebCrawler" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i> View on GitHub
-            </a>
-            <a href="https://github.com/yourusername/WebCrawler/archive/refs/heads/main.zip" class="github-btn">
-                <i class="fas fa-download"></i> Download Code
             </a>
        </div>
     </section>
