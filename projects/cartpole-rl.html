@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CartPole RL Algorithms | Reinforcement Learning Portfolio</title>
+    <meta name="description" content="Implementation of Monte Carlo, Q-Learning and SARSA on CartPole problem">
+    <style>
+        :root {
+            --primary: #3b82f6; 
+            --primary-light: #dbeafe;
+            --primary-dark: #2563eb;
+            --secondary: #bfdbfe;
+            --text: #1e40af;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        .tech-tags {
+            background: var(--primary-light);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .tech-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 4px;
+            font-size: 14px;
+        }
+        .category-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 4px;
+            font-size: 14px;
+            border: 1px solid #93c5fd;
+        }
+        .algorithm-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
+        }
+        .env-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .env-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>CartPole Reinforcement Learning</h1>
+        <p>Comparing Monte Carlo, Q-Learning and SARSA algorithms</p>
+        
+        <div class="tech-tags">
+            <div style="margin-bottom: 12px;">
+                <strong>Tech Stack:</strong>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenAI Gym</span>
+                <span class="tech-tag">NumPy</span>
+            </div>
+            <div>
+                <strong>Categories:</strong>
+                <span class="category-tag">Reinforcement Learning</span>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <h2>Environment Details</h2>
+        <div class="env-details">
+            <div class="env-card">
+                <h3><i class="fas fa-robot"></i> Actions</h3>
+                <ul>
+                    <li>Discrete (2 actions)</li>
+                    <li>0: Push left</li>
+                    <li>1: Push right</li>
+                </ul>
+            </div>
+            <div class="env-card">
+                <h3><i class="fas fa-trophy"></i> Reward</h3>
+                <ul>
+                    <li>+1 for each step</li>
+                    <li>Termination at 200 steps</li>
+                    <li>Solved at 195+ avg</li>
+                </ul>
+            </div>
+            <div class="env-card">
+                <h3><i class="fas fa-stop-circle"></i> Termination</h3>
+                <ul>
+                    <li>Pole angle > ±12°</li>
+                    <li>Cart position > ±2.4</li>
+                    <li>Episode length > 200</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Implemented Algorithms</h2>
+        
+        <div class="algorithm-card">
+            <h3><i class="fas fa-dice"></i> Monte Carlo</h3>
+            <ul>
+                <li>Model-free approach</li>
+                <li>Learns from complete episodes</li>
+                <li>Averages returns for state-action pairs</li>
+            </ul>
+        </div>
+        
+        <div class="algorithm-card">
+            <h3><i class="fas fa-brain"></i> Q-Learning</h3>
+            <ul>
+                <li>Off-policy TD control</li>
+                <li>Learns optimal policy directly</li>
+                <li>Updates Q-values using max future reward</li>
+            </ul>
+        </div>
+        
+        <div class="algorithm-card">
+            <h3><i class="fas fa-route"></i> SARSA</h3>
+            <ul>
+                <li>On-policy TD control</li>
+                <li>Learns action-value function</li>
+                <li>Updates using actual next action taken</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Implementation</h2>
+        <ul>
+            <li>State discretization for tabular methods</li>
+            <li>ε-greedy policy for exploration</li>
+            <li>Discount factor (γ) = 0.99</li>
+            <li>Learning rate (α) = 0.1</li>
+        </ul>
+    </section>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://github.com/Aalaa4444/CartPole-Reinforcement-Learning-Algorithms" class="button" target="_blank">
+            <i class="fab fa-github"></i> View Full Repository
+        </a>
+    </div>
+</body>
+</html>
