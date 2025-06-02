@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Game Rental Database System | SQL Server Implementation</title>
+    <title>Game Rental System | C# & SQL Server Application</title>
+    <meta name="description" content="WinForms application for managing game rentals with SQL Server backend">
+    
     <style>
         :root {
             --primary: #4361ee; /* Royal blue for database projects */
@@ -95,105 +97,103 @@
             transform: translateY(-2px);
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="header">
-        <h1>Game Rental Database System</h1>
-        <p>SQL Server backend for game rental management application</p>
-    </div>
-
-    <div class="schema-container">
-        <div class="erd-diagram">
-            <h2>Entity Relationship Diagram</h2>
-            <img src="ERD.png" alt="Database ER Diagram">
-            <p>7-table relational model supporting:</p>
-            <ul>
-                <li>User role separation (Admin/Customer)</li>
-                <li>Game inventory tracking</li>
-                <li>Rental transaction history</li>
-                <li>Vendor relationships</li>
-            </ul>
-        </div>
-
-        <div class="table-schema">
-            <h2>Database Schema</h2>
-            
-            <h3>Core Tables</h3>
-            <table>
-                <tr>
-                    <th>Table</th>
-                    <th>Purpose</th>
-                    <th>Relationships</th>
-                </tr>
-                <tr>
-                    <td><span class="key">Account</span></td>
-                    <td>Base user credentials</td>
-                    <td>Parent to Customer/Admin</td>
-                </tr>
-                <tr>
-                    <td><span class="key">Game</span></td>
-                    <td>Game catalog</td>
-                    <td>Linked to Admin (vendor)</td>
-                </tr>
-                <tr>
-                    <td><span class="key">Rent</span></td>
-                    <td>Active rentals</td>
-                    <td>Links Customers to Games</td>
-                </tr>
-            </table>
-
-            <h3>Key Constraints</h3>
-            <div class="sql-code">
-CREATE TABLE Account (
-  ACC_ID INT IDENTITY(1,1) PRIMARY KEY,
-  Username VARCHAR(55) UNIQUE NOT NULL,
-  Password VARCHAR(55) NOT NULL,
-  E_mail VARCHAR(55) UNIQUE NOT NULL,
-  Name VARCHAR(55) NOT NULL
-);
-
-CREATE TABLE Rent (
-  rent_id INT IDENTITY(1,1) PRIMARY KEY,
-  S_Date DATE NOT NULL,
-  E_Date DATE NOT NULL,
-  Game_ID INT FOREIGN KEY REFERENCES Game(Game_ID),
-  ACC_ID INT FOREIGN KEY REFERENCES Customer(ACC_ID)
-);
+        <h1>Game Rental Management System</h1>
+        <p>WinForms application with SQL Server backend for efficient game rentals</p>
+        
+        <div class="tech-tags">
+            <div style="margin-bottom: 10px;">
+                <strong>Tech Stack:</strong>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">WinForms</span>
+            </div>
+            <div>
+                <strong>Categories:</strong>
+                <span class="category-tag">Database Systems</span>
+                <span class="category-tag">Desktop Application</span>
+                <span class="category-tag">Inventory Management</span>
             </div>
         </div>
     </div>
+    
 
-    <div style="margin: 40px 0;">
-        <h2>Business Logic Implementation</h2>
-        
-        <h3>1. Account Hierarchy</h3>
-        <div class="sql-code">
--- Inherited customer/admin roles
-CREATE TABLE Customer (
-  ACC_ID INT PRIMARY KEY,
-  Age INT NOT NULL,
-  Phone VARCHAR(55) NOT NULL,
-  FOREIGN KEY (ACC_ID) REFERENCES Account(ACC_ID)
-  ON DELETE CASCADE
-);
+    <!-- Corrected Database Section -->
+    <h3>Database Design</h3>
+    <img src="ERD.png" alt="Entity Relationship Diagram" class="erd-diagram">
+    <p>7-table normalized schema with proper relationships:</p>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4><i class="fas fa-users"></i> User Tables</h4>
+            <ul>
+                <li><strong>Account</strong>: Base credentials (ACC_ID PK)</li>
+                <li><strong>Customer</strong>: Age, Phone (ACC_ID FK)</li>
+                <li><strong>Admin</strong>: Vendor management (ACC_ID FK)</li>
+            </ul>
         </div>
-
-        <h3>2. Rental Analytics</h3>
-        <div class="sql-code">
--- Most rented game
-SELECT TOP 1 g.Title, COUNT(r.rent_id) AS rental_count
-FROM Game g JOIN Rent r ON g.Game_ID = r.Game_ID
-GROUP BY g.Title ORDER BY rental_count DESC;
+        <div class="feature-card">
+            <h4><i class="fas fa-gamepad"></i> Game Tables</h4>
+            <ul>
+                <li><strong>Game</strong>: Title, Vendor (Game_ID PK)</li>
+                <li><strong>Browse</strong>: Customer viewing history</li>
+            </ul>
+        </div>
+        <div class="feature-card">
+            <h4><i class="fas fa-exchange-alt"></i> Transaction Tables</h4>
+            <ul>
+                <li><strong>Rent</strong>: S_Date, E_Date (rent_id PK)</li>
+                <li><strong>Return</strong>: Track completed rentals</li>
+            </ul>
         </div>
     </div>
 
+    <!-- 
+    <h3>Key SQL Implementation</h3>
+    <div class="sql-query">
+        <strong>Account Table Creation:</strong><br>
+        CREATE TABLE Account (<br>
+        &nbsp;&nbsp;ACC_ID INT IDENTITY(1,1) PRIMARY KEY,<br>
+        &nbsp;&nbsp;Username VARCHAR(55) UNIQUE NOT NULL,<br>
+        &nbsp;&nbsp;Password VARCHAR(55) NOT NULL,<br>
+        &nbsp;&nbsp;E_mail VARCHAR(55) UNIQUE NOT NULL<br>
+        );
+    </div>
+
+    <div class="sql-query">
+        <strong>Rentals Query (Fixed):</strong><br>
+        SELECT g.Title, COUNT(r.rent_id) AS rental_count<br>
+        FROM Game g JOIN Rent r ON g.Game_ID = r.Game_ID<br>
+        WHERE r.S_Date BETWEEN '2023-01-01' AND '2023-12-31'<br>
+        GROUP BY g.Title<br>
+        ORDER BY rental_count DESC;
+    </div>
+
+    <h3>Application Interface</h3>
+    <div class="feature-grid">
+        <div>
+            <img src="game_system.png" alt="Game Management" class="screenshot">
+            <p><strong>Game Management Console</strong><br>
+            Admin interface for adding/updating games</p>
+        </div>
+        <div>
+            <img src="CMD.png" alt="Rental Processing" class="screenshot">
+            <p><strong>Rental Processing</strong><br>
+            Customer rental transaction screen</p>
+        </div>
+    </div>
+     -->
     <div style="text-align: center; margin-top: 40px;">
-        <a href="GAMES.sql" class="button" download>
-            Download Complete SQL Schema
+        <a href="https://github.com/Aalaa4444/GameRental" class="button" target="_blank">
+            <i class="fab fa-github"></i> View on GitHub
         </a>
-        <a href="https://github.com/yourusername/GameRental" class="button">
-            View Application Code
-        </a>
+    </div>
+
+    <div style="margin-top: 50px; text-align: center; color: #777; font-size: 14px;">
+        <p>Database project demonstrating ERD design, query optimization, and WinForms integration</p>
     </div>
 </body>
 </html>
