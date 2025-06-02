@@ -3,108 +3,118 @@
 <head>
     <meta charset="utf-8">
     <title>Game Rental System | C# & SQL Server Application</title>
-    <meta name="description" content="WinForms application for managing game rentals with SQL Server backend">
+    <meta name="description" content="Professional game rental management solution with WinForms and SQL Server">
     <style>
         :root {
-            --primary: #2563eb; /* Professional blue */
-            --primary-light: #dbeafe;
-            --primary-dark: #1d4ed8;
-            --secondary: #bfdbfe;
-            --text: #1e3a8a;
+            --primary: #2563eb;       /* Primary blue */
+            --primary-light: #dbeafe;  /* Light blue */
+            --primary-dark: #1d4ed8;   /* Dark blue */
+            --secondary: #bfdbfe;      /* Secondary blue */
+            --text: #1e3a8a;           /* Navy text */
+            --background: #f8fafc;     /* Page background */
         }
         body {
-
             font-family: 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
             color: var(--text);
-            max-width: 800px;
+            background-color: var(--background);
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
         }
-        h1 {
+        h1, h2, h3 {
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-top: 1.5rem;
         }
         .tech-tags {
-            background: var(--primary-light);
+            background: #dbeafe; /* primary-light */
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
             text-align: center;
-            border-left: 3px solid var(--primary);
+            border-left: 3px solid #2563eb; /* primary */
         }
+        
         .tech-tag {
             display: inline-block;
-            background: var(--primary);
+            background: #2563eb; /* primary */
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
             margin: 5px;
             font-size: 14px;
         }
+        
         .category-tag {
             display: inline-block;
-            background: var(--secondary);
-            color: var(--primary-dark);
+            background: #bfdbfe; /* secondary */
+            color: #1d4ed8; /* primary-dark */
             padding: 5px 15px;
             border-radius: 20px;
             margin: 5px;
             font-size: 14px;
-            border: 1px solid #ffb8a4;
+            border: 1px solid #93c5fd;
         }
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         .feature-card {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             border-top: 3px solid var(--primary);
+            transition: transform 0.2s;
         }
-        .screenshot {
-            width: 100%;
-            border-radius: 5px;
-            border: 1px solid #eee;
-            margin: 15px 0;
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
-        .erd-diagram {
-            max-width: 600px;
-            margin: 20px auto;
-            display: block;
-            border: 1px solid #e2e8f0;
+        .feature-card h4 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .feature-card ul {
+            padding-left: 1.2rem;
+        }
+        .feature-card li {
+            margin-bottom: 0.5rem;
         }
         .button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: var(--primary);
             color: white;
-            padding: 12px 25px;
+            padding: 0.75rem 1.5rem;
             text-decoration: none;
-            border-radius: 5px;
-            margin: 10px 5px;
-            font-weight: bold;
-            transition: all 0.3s;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
         }
         .button:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
         }
-        .sql-query {
-            background: #f8fafc;
-            padding: 15px;
-            border-radius: 5px;
-            font-family: monospace;
-            overflow-x: auto;
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="header">
@@ -112,71 +122,91 @@
         <p>WinForms application with SQL Server backend for efficient game rentals</p>
         
         <div class="tech-tags">
-            <div style="margin-bottom: 10px;">
-                <strong>Tech Stack:</strong>
-                <span class="tech-tag">C#</span>
-                <span class="tech-tag">SQL Server</span>
-                <span class="tech-tag">WinForms</span>
+        <div style="margin-bottom: 10px;">
+            <strong>Tech Stack:</strong>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">SQL Server</span>
+            <span class="tech-tag">WinForms</span>
+            <span class="tech-tag">ADO.NET</span>
+        </div>
+        <div>
+            <strong>Categories:</strong>
+            <span class="category-tag">Database</span>
+            <span class="category-tag">Desktop App</span>
+            <span class="category-tag">Inventory</span>
+        </div>
+    </div>
+    </div>
+
+    <section>
+        <h2>System Overview</h2>
+        <p>The Game Rental System provides an efficient way to manage game inventory and customer rentals through:</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4><i class="fas fa-users"></i> User Management</h4>
+                <ul>
+                    <li>Admin accounts for game management</li>
+                    <li>Customer accounts for rentals</li>
+                    <li>Secure authentication</li>
+                </ul>
             </div>
-            <div>
-                <strong>Categories:</strong>
-                <span class="category-tag">Database Systems</span>
-                <span class="category-tag">Desktop Application</span>
-                <span class="category-tag">Inventory Management</span>
+            <div class="feature-card">
+                <h4><i class="fas fa-gamepad"></i> Game Catalog</h4>
+                <ul>
+                    <li>Track game titles and details</li>
+                    <li>Organize by categories</li>
+                    <li>Manage vendor relationships</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h4><i class="fas fa-exchange-alt"></i> Rental Operations</h4>
+                <ul>
+                    <li>Check-out and return processing</li>
+                    <li>Due date tracking</li>
+                    <li>Rental history records</li>
+                </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="feature">
-        <h2>How It Works</h2>
-        <p>The system has three main components:</p>
-        <ol>
-            <li><strong>Users</strong>: Admins manage games, customers rent them</li>
-            <li><strong>Games</strong>: Catalog with titles, categories, and vendors</li>
-            <li><strong>Transactions</strong>: Tracking rentals and returns</li>
-        </ol>
-    </div>
-
-    <h3>Key Features</h3>
-    <div class="feature-grid">
-        
-        <div class="feature-card">
-            <h4><i class="fas fa-user-shield"></i> For Customers</h4>
-            <ul>
-                <li>Browse available games</li>
-                <li>Rent with due dates</li>
-                <li>Return tracking</li>
-            </ul>
-            
+    <section>
+        <h2>Key Benefits</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4><i class="fas fa-chart-line"></i> Business Analytics</h4>
+                <ul>
+                    <li>Track popular games</li>
+                    <li>Monitor rental patterns</li>
+                    <li>Generate performance reports</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h4><i class="fas fa-cogs"></i> Efficient Workflow</h4>
+                <ul>
+                    <li>Streamlined rental process</li>
+                    <li>Automated due date reminders</li>
+                    <li>Quick inventory lookup</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h4><i class="fas fa-database"></i> Reliable Data</h4>
+                <ul>
+                    <li>SQL Server backend</li>
+                    <li>Normalized database design</li>
+                    <li>Data integrity checks</li>
+                </ul>
+            </div>
         </div>
-        <div class="feature-card">
-            <h4><i class="fas fa-gamepad"></i> Game Management</h4>
-            <ul>
-                <li>Add new game entries</li>
-                <li>Update existing game details</li>
-                <li>Filter by year/vendor/category</li>
-            </ul>
-        </div>
-        <div class="feature-card">
-            <h4><i class="fas fa-exchange-alt"></i> Rental Operations</h4>
-            <ul>
-                <li>Check-out/return system</li>
-                <li>Rental history tracking</li>
-                <li>Late return detection</li>
-            </ul>
-        </div>
-    </div>
+    </section>
 
-
-
-    <div style="text-align: center; margin-top: 40px;">
-        <a href="https://github.com/yourusername/GameRental" class="button" target="_blank">
+    <div style="text-align: center; margin: 3rem 0;">
+        <a href="https://github.com/Aalaa4444/GameRental" class="button" target="_blank">
             <i class="fab fa-github"></i> View on GitHub
         </a>
     </div>
 
-    <div style="margin-top: 50px; text-align: center; color: #777; font-size: 14px;">
-        <p>Database project demonstrating ERD design, query optimization, and WinForms integration</p>
+    <div class="footer">
+        <p>Database project demonstrating ERD design, query optimization, and WinForms</p>
     </div>
 </body>
 </html>
