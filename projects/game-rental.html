@@ -3,189 +3,148 @@
 <head>
     <meta charset="utf-8">
     <title>Game Rental System | C# & SQL Server Application</title>
-    <meta name="description" content="WinForms application for managing game rentals with SQL Server backend">
-    
     <style>
         :root {
-            --primary: #4361ee; /* Royal blue for database projects */
-            --primary-light: #e6ecff;
-            --primary-dark: #3a56d4;
-            --secondary: #d0d9ff;
+            --primary: #2563eb; /* Professional blue */
+            --primary-light: #dbeafe;
+            --primary-dark: #1d4ed8;
+            --secondary: #bfdbfe;
+            --text: #1e3a8a;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1000px;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.5;
+            color: var(--text);
+            max-width: 800px;
             margin: 0 auto;
-            padding: 25px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            padding: 2rem;
         }
         h1, h2, h3 {
             color: var(--primary);
+            margin-top: 2rem;
         }
-        .schema-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
-        }
-        .erd-diagram {
+        .card {
             background: white;
-            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
         }
-        .erd-diagram img {
+        .tech {
+            background: var(--primary-light);
+            color: var(--text);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .diagram {
             width: 100%;
-            border: 1px solid #ddd;
+            max-width: 600px;
+            margin: 1rem auto;
+            display: block;
+            border: 1px solid #e2e8f0;
         }
-        .table-schema {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 10px;
-            text-align: left;
-        }
-        td {
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .sql-code {
-            background: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
+        .sql {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
             overflow-x: auto;
-            margin: 20px 0;
+            border-left: 3px solid var(--primary);
         }
-        .key {
-            font-weight: bold;
-            color: var(--primary-dark);
+        .flex-cols {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
-        .button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px 5px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+        .flex-cols > div {
+            flex: 1;
+            min-width: 250px;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Game Rental Management System</h1>
-        <p>WinForms application with SQL Server backend for efficient game rentals</p>
-        
-        <div class="tech-tags">
-            <div style="margin-bottom: 10px;">
+    <h1>Game Rental System</h1>
+    <p>A complete solution for managing video game rentals with C# (WinForms application) and SQL Server</p>
+    <div class="tech">
+        <div style="margin-bottom: 10px;">
                 <strong>Tech Stack:</strong>
                 <span class="tech-tag">C#</span>
                 <span class="tech-tag">SQL Server</span>
                 <span class="tech-tag">WinForms</span>
-            </div>
-            <div>
+                <span class="tech-tag">ADO.NET</span>
+        </div>
+        <div>
                 <strong>Categories:</strong>
                 <span class="category-tag">Database Systems</span>
                 <span class="category-tag">Desktop Application</span>
                 <span class="category-tag">Inventory Management</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>How It Works</h2>
+        <p>The system has three main components:</p>
+        <ol>
+            <li><strong>Users</strong>: Admins manage games, customers rent them</li>
+            <li><strong>Games</strong>: Catalog with titles, categories, and vendors</li>
+            <li><strong>Transactions</strong>: Tracking rentals and returns</li>
+        </ol>
+        <img src="img/ERD.png" alt="Database structure diagram" class="diagram">
+    </div>
+
+    <div class="card">
+        <h2>Key Features</h2>
+        <div class="flex-cols">
+            <div>
+                <h3>For Customers</h3>
+                <ul>
+                    <li>Browse available games</li>
+                    <li>Rent with due dates</li>
+                    <li>Return tracking</li>
+                </ul>
+            </div>
+            <div>
+                <h3>For Admins</h3>
+                <ul>
+                    <li>Add/update game details</li>
+                    <li>View rental analytics</li>
+                    <li>Manage vendors</li>
+                </ul>
             </div>
         </div>
     </div>
-    
 
-    <!-- Corrected Database Section -->
-    <h3>Database Design</h3>
-    <img src="ERD.png" alt="Entity Relationship Diagram" class="erd-diagram">
-    <p>7-table normalized schema with proper relationships:</p>
-    
-    <div class="feature-grid">
-        <div class="feature-card">
-            <h4><i class="fas fa-users"></i> User Tables</h4>
-            <ul>
-                <li><strong>Account</strong>: Base credentials (ACC_ID PK)</li>
-                <li><strong>Customer</strong>: Age, Phone (ACC_ID FK)</li>
-                <li><strong>Admin</strong>: Vendor management (ACC_ID FK)</li>
-            </ul>
+    <div class="card">
+        <h2>Database Highlights</h2>
+        <p>The system uses these main tables:</p>
+        
+        <div class="sql">
+CREATE TABLE Game (
+    Game_ID INT IDENTITY(1,1) PRIMARY KEY,
+    Title VARCHAR(55) NOT NULL,
+    Year INT,
+    Category VARCHAR(55),
+    vendor VARCHAR(55) NOT NULL
+);
         </div>
-        <div class="feature-card">
-            <h4><i class="fas fa-gamepad"></i> Game Tables</h4>
-            <ul>
-                <li><strong>Game</strong>: Title, Vendor (Game_ID PK)</li>
-                <li><strong>Browse</strong>: Customer viewing history</li>
-            </ul>
-        </div>
-        <div class="feature-card">
-            <h4><i class="fas fa-exchange-alt"></i> Transaction Tables</h4>
-            <ul>
-                <li><strong>Rent</strong>: S_Date, E_Date (rent_id PK)</li>
-                <li><strong>Return</strong>: Track completed rentals</li>
-            </ul>
-        </div>
+
+        <p>Relationships ensure data stays accurate:</p>
+        <ul>
+            <li>Customers must have valid accounts</li>
+            <li>Every rental links to a specific game</li>
+            <li>Returns match existing rentals</li>
+        </ul>
     </div>
 
-    <!-- 
-    <h3>Key SQL Implementation</h3>
-    <div class="sql-query">
-        <strong>Account Table Creation:</strong><br>
-        CREATE TABLE Account (<br>
-        &nbsp;&nbsp;ACC_ID INT IDENTITY(1,1) PRIMARY KEY,<br>
-        &nbsp;&nbsp;Username VARCHAR(55) UNIQUE NOT NULL,<br>
-        &nbsp;&nbsp;Password VARCHAR(55) NOT NULL,<br>
-        &nbsp;&nbsp;E_mail VARCHAR(55) UNIQUE NOT NULL<br>
-        );
+    <div class="card">
+        <h2>Technical Details</h2>
+        <p><span class="tech">C# WinForms</span> for the desktop interface</p>
+        <p><span class="tech">SQL Server</span> for data storage</p>
+        <p><span class="tech">ADO.NET</span> for database connections</p>
     </div>
-
-    <div class="sql-query">
-        <strong>Rentals Query (Fixed):</strong><br>
-        SELECT g.Title, COUNT(r.rent_id) AS rental_count<br>
-        FROM Game g JOIN Rent r ON g.Game_ID = r.Game_ID<br>
-        WHERE r.S_Date BETWEEN '2023-01-01' AND '2023-12-31'<br>
-        GROUP BY g.Title<br>
-        ORDER BY rental_count DESC;
-    </div>
-
-    <h3>Application Interface</h3>
-    <div class="feature-grid">
-        <div>
-            <img src="game_system.png" alt="Game Management" class="screenshot">
-            <p><strong>Game Management Console</strong><br>
-            Admin interface for adding/updating games</p>
-        </div>
-        <div>
-            <img src="CMD.png" alt="Rental Processing" class="screenshot">
-            <p><strong>Rental Processing</strong><br>
-            Customer rental transaction screen</p>
-        </div>
-    </div>
-     -->
     <div style="text-align: center; margin-top: 40px;">
         <a href="https://github.com/Aalaa4444/GameRental" class="button" target="_blank">
             <i class="fab fa-github"></i> View on GitHub
@@ -195,5 +154,6 @@
     <div style="margin-top: 50px; text-align: center; color: #777; font-size: 14px;">
         <p>Database project demonstrating ERD design, query optimization, and WinForms integration</p>
     </div>
+    
 </body>
 </html>
