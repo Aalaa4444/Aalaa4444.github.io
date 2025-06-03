@@ -64,34 +64,20 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             border-left: 4px solid var(--primary);
         }
-        .github-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--github);
+        .button {
+            display: inline-block;
+            background: var(--primary);
             color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 12px 25px;
             text-decoration: none;
-            font-weight: 600;
-            margin: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: all 0.3s;
         }
-        .github-btn:hover {
-            background-color: var(--github-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        .github-btn i {
-            margin-right: 10px;
-            font-size: 1.1em;
-        }
-        .github-btns-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-            gap: 10px;
+        .button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
         .code-block {
             background: #f8fafc;
@@ -152,8 +138,8 @@
         </div>
     </section>
 
-    <div class="github-btns-container">
-            <a href="https://github.com/Aalaa4444/WebCrawler" class="github-btn" target="_blank">
+    <div style="text-align: center; margin-top: 40px;">
+            <a href="https://github.com/Aalaa4444/WebCrawler" class="button" target="_blank">
                 <i class="fab fa-github"></i> View on Github
             </a>
     </div>
