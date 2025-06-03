@@ -11,8 +11,8 @@
             --primary-dark: #059669;
             --secondary: #a7f3d0;
             --github: #24292e;
+            --github-hover: #2d3338;
             --text: #064e3b;
-            
         }
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
@@ -69,26 +69,29 @@
             align-items: center;
             background-color: var(--github);
             color: white;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
-            margin: 10px 5px;
-            transition: all 0.2s;
+            font-weight: 600;
+            margin: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .github-btn:hover {
-            background-color: #2d3338;
-            transform: translateY(-2px);
+            background-color: var(--github-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         .github-btn i {
-            margin-right: 8px;
-            font-size: 1.2em;
+            margin-right: 10px;
+            font-size: 1.1em;
         }
         .github-btns-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
+            gap: 10px;
         }
         .code-block {
             background: #f8fafc;
@@ -122,6 +125,7 @@
             <div style="margin-bottom: 12px;">
                 <strong>Tech Stack:</strong>
                 <span class="tech-tag">Java</span>
+
             </div>
             <div>
                 <strong>Categories:</strong>
@@ -146,16 +150,14 @@
                 <li>HTML content extraction</li>
             </ul>
         </div>
-        <div class="github-btns-container">
-            <a href="https://github.com/Aalaa444/WebCrawler" class="github-btn" target="_blank">
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
-       </div>
     </section>
+
     <div class="github-btns-container">
-            <a href="https://github.com/Aalaa444/WebCrawler" class="github-btn" target="_blank">
-                <i class="fab fa-github"></i> View on GitHub
+            <a href="https://github.com/Aalaa4444/WebCrawler" class="github-btn" target="_blank">
+                <i class="fab fa-github"></i> View on Github
             </a>
     </div>
+
+
 </body>
 </html>
