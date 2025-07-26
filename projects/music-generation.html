@@ -114,46 +114,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi@2.0.27/build/Midi.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mudcube/MIDI.js@master/build/MIDI.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mudcube/MIDI.js@master/examples/soundfont/acoustic_grand_piano-mp3.js"></script>
-    <script>
-        const playBtn = document.getElementById('playBtn');
-        let playing = false, synth;
-
-        playBtn.addEventListener('click', async () => {
-            if (!playing) {
-                // Load MIDI file
-                const response = await fetch("img/generated_music.mid");
-                const arrayBuffer = await response.arrayBuffer();
-                const midi = new Midi(arrayBuffer);
-
-                // Setup synth
-                synth = new Tone.PolySynth(Tone.Synth).toDestination();
-                Tone.Transport.bpm.value = midi.header.tempos[0].bpm || 120;
-
-                // Schedule notes
-                midi.tracks.forEach(track => {
-                    track.notes.forEach(note => {
-                        synth.triggerAttackRelease(
-                            note.name,
-                            note.duration,
-                            note.time
-                        );
-                    });
-                });
-
-                await Tone.start();
-                Tone.Transport.start();
-                playing = true;
-                playBtn.textContent = "■ Stop MIDI";
-            } else {
-                Tone.Transport.stop();
-                playing = false;
-                playBtn.textContent = "▶ Play MIDI";
-            }
-        });
-    </script>
+    
 </head>
 <body>
     <div class="header">
@@ -192,50 +153,10 @@
 
     <div class="result-card">
         <h3>Generated Music Sample (MIDI)</h3>
-        <button id="playBtn" class="button">
-            <i class="fa fa-play"></i> Play MIDI
-        </button>
+        <audio controls>
+            <source src="img/generated.mp3" type="audio/mpeg">
+        </audio>
     </div>
-
-    
-    <script src="https://cdn.jsdelivr.net/gh/mudcube/MIDI.js/build/MIDI.min.js"></script>
-    <script>
-        const playBtn = document.getElementById('playBtn');
-        let playing = false, synth;
-
-        playBtn.addEventListener('click', async () => {
-            if (!playing) {
-                // Load MIDI file
-                const response = await fetch("img/generated_music.mid");
-                const arrayBuffer = await response.arrayBuffer();
-                const midi = new Midi(arrayBuffer);
-
-                // Setup synth
-                synth = new Tone.PolySynth(Tone.Synth).toDestination();
-                Tone.Transport.bpm.value = midi.header.tempos[0].bpm || 120;
-
-                // Schedule notes
-                midi.tracks.forEach(track => {
-                    track.notes.forEach(note => {
-                        synth.triggerAttackRelease(
-                            note.name,
-                            note.duration,
-                            note.time
-                        );
-                    });
-                });
-
-                await Tone.start();
-                Tone.Transport.start();
-                playing = true;
-                playBtn.textContent = "■ Stop MIDI";
-            } else {
-                Tone.Transport.stop();
-                playing = false;
-                playBtn.textContent = "▶ Play MIDI";
-            }
-        });
-    </script>
 
 
     <div style="text-align: center; margin: 3rem 0;">
