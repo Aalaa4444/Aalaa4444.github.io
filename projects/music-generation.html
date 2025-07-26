@@ -113,6 +113,19 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/mudcube/MIDI.js@master/build/MIDI.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mudcube/MIDI.js@master/examples/soundfont/acoustic_grand_piano-mp3.js"></script>
+    <script>
+        document.getElementById('playBtn').addEventListener('click', function () {
+            MIDI.loadPlugin({
+                soundfontUrl: "./soundfont/",
+                instrument: "acoustic_grand_piano",
+                onsuccess: function () {
+                    MIDI.Player.loadFile("img/generated_music.mid", MIDI.Player.start);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="header">
@@ -148,21 +161,28 @@
             </ul>
         </div>
     </section>
+
     <div class="result-card">
-        <h3>Generated Music Sample</h3>
-        <div id="midi-player"></div>
+        <h3>Generated Music Sample (MIDI)</h3>
+        <button id="playBtn" class="button">
+            <i class="fa fa-play"></i> Play MIDI
+        </button>
     </div>
+
     
     <script src="https://cdn.jsdelivr.net/gh/mudcube/MIDI.js/build/MIDI.min.js"></script>
     <script>
+    document.getElementById('playBtn').addEventListener('click', function () {
         MIDI.loadPlugin({
             soundfontUrl: "./soundfont/",
             instrument: "acoustic_grand_piano",
-            onsuccess: function() {
-                MIDI.Player.loadFile("assets/midi/generated_music.mid", MIDI.Player.start);
+            onsuccess: function () {
+                MIDI.Player.loadFile("img/generated_music.mid", MIDI.Player.start);
             }
         });
+    });
     </script>
+
 
     <div style="text-align: center; margin: 3rem 0;">
         <a href="https://github.com/Aalaa4444/Music_Generation" class="button" target="_blank">
