@@ -148,6 +148,22 @@
             </ul>
         </div>
     </section>
+    <div class="result-card">
+        <h3>Generated Music Sample</h3>
+        <div id="midi-player"></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/gh/mudcube/MIDI.js/build/MIDI.min.js"></script>
+    <script>
+        MIDI.loadPlugin({
+            soundfontUrl: "./soundfont/",
+            instrument: "acoustic_grand_piano",
+            onsuccess: function() {
+                MIDI.Player.loadFile("assets/midi/generated_music.mid", MIDI.Player.start);
+            }
+        });
+    </script>
+
     <div style="text-align: center; margin: 3rem 0;">
         <a href="https://github.com/Aalaa4444/Music_Generation" class="button" target="_blank">
             <i class="fab fa-github"></i> View on GitHub
