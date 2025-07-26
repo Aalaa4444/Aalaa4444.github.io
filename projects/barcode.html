@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AutoBarcode | Automated Barcode Detection & Data Extraction</title>
+    <meta name="description" content="Automatically detect barcodes from videos, extract data, and generate structured CSV reports for business workflows.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header { text-align: center; margin-bottom: 30px; }
+        h1 { color: #2c8aec; margin-bottom: 10px; }
+        .tech-tags, .category-tags {
+            background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center;
+        }
+        .tech-tag, .category-tag {
+            display: inline-block; background: #2c8aec; color: white;
+            padding: 5px 15px; border-radius: 20px; margin: 5px; font-size: 14px;
+        }
+        .category-tag { background: #e6f7ff; color: #0066cc; border: 1px solid #b3e0ff; }
+        .demo-image { width: 100%; border: 1px solid #eee; border-radius: 5px; margin: 20px 0; }
+        .feature { background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .steps { margin: 30px 0; }
+        .step { margin-bottom: 25px; padding-left: 40px; position: relative; }
+        .step-number {
+            position: absolute; left: 0; background: #2c8aec; color: white;
+            width: 30px; height: 30px; text-align: center; line-height: 30px; border-radius: 50%;
+        }
+        .button {
+            display: inline-block; background: #2c8aec; color: white;
+            padding: 12px 25px; text-decoration: none; border-radius: 5px; margin: 10px 5px;
+            font-weight: bold; transition: background 0.3s;
+        }
+        .button:hover { background: #1a75d2; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AutoBarcode</h1>
+        <p>Automated Barcode Detection & Data Extraction from Videos</p>
+
+        <div class="tech-tags">
+            <strong>Tech Stack:</strong>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">YOLO</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">CSV Automation</span>
+        </div>
+        <div class="category-tags">
+            <strong>Categories:</strong>
+            <span class="category-tag">Computer Vision</span>
+            <span class="category-tag">Automation</span>
+            <span class="category-tag">Data Processing</span>
+        </div>
+    </div>
+
+    <!-- Example Demo Image -->
+    <!-- Replace with real before-after images -->
+    <!-- <img src="assets/img/barcode-demo.jpg" alt="Barcode detection example" class="demo-image"> -->
+
+    <div class="feature">
+        <h3>Project Overview</h3>
+        <p>This project automates the process of barcode detection and data extraction from video streams. 
+           Instead of manually scanning barcodes one by one, the system processes recorded or live video feeds, 
+           detects barcodes, and stores extracted information into structured CSV files.</p>
+        <p><strong>Impact:</strong> Saves hours of manual work, reduces human errors, and integrates easily into existing warehouse or logistics systems.</p>
+    </div>
+
+    <div class="steps">
+        <h3>How It Works</h3>
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Video Processing</strong>
+            <p>Each video frame is analyzed to detect potential barcode regions.</p>
+        </div>
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Barcode Detection</strong>
+            <p>Uses deep learning (YOLO) and OpenCV to accurately identify barcode positions.</p>
+        </div>
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Data Extraction</strong>
+            <p>Decodes barcode content and logs it in real-time.</p>
+        </div>
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>CSV Reporting</strong>
+            <p>Generates a CSV report with barcode IDs and timestamps for business analytics.</p>
+        </div>
+    </div>
+
+    <!-- Buttons (if you create a safe demo or PDF) -->
+    <!-- <div style="text-align: center;">
+        <a href="https://github.com/Aalaa4444/AutoBarcode" class="button" target="_blank">View on GitHub</a>
+        <a href="assets/docs/AutoBarcode-case-study.pdf" class="button" download>Read Case Study</a>
+    </div> -->
+
+    <div style="margin-top: 50px; text-align: center; color: #777; font-size: 14px;">
+        <p>Developed by Aalaa Amer — For warehouse & logistics automation</p>
+    </div>
+</body>
+</html>
