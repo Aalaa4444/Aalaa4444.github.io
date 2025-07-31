@@ -112,8 +112,9 @@
         }
         .comparisonn-item video {
             width: 100%;
-            aspect-ratio: 16/9; /* keeps a consistent video ratio */
-            object-fit: cover;  /* ensures proper cropping if video dimensions differ */
+            height: 400px;        /* fixed same size for both */
+            object-fit: contain;  /* ensures full video fits without cropping */
+            background: black;    /* fills the empty area (if any) */
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -201,19 +202,30 @@
     <div class="comparisonn">
         <div class="comparisonn-item">
             <h4>2D Pose (OpenPose)</h4>
-            <video autoplay loop muted playsinline>
+            <video id="video2d" loop muted playsinline>
                 <source src="img/2d_pose.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="comparisonn-item">
             <h4>3D Pose (Model)</h4>
-            <video autoplay loop muted playsinline>
+            <video id="video3d" loop muted playsinline>
                 <source src="img/3d_pose.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
     </div>
+    
+    <script>
+    window.addEventListener('load', () => {
+        const v2d = document.getElementById('video2d');
+        const v3d = document.getElementById('video3d');
+    
+        Promise.all([v2d.play(), v3d.play()])
+            .catch(err => console.log("Autoplay blocked, need user interaction:", err));
+    });
+    </script>
+
 
 
     <div class="feature">
