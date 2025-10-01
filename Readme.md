@@ -56,5 +56,5 @@
 - 🔃 Create a new pull request.
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Aalaa4444&style=plastic&color=blue" alt="Profile"/>
+  <img src="https://komarev.com/ghpvc/?username=Aalaa4444&style=plastic&color=blueviolet" alt="Profile"/>
 </div>
